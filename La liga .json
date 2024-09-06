@@ -1,0 +1,286 @@
+{
+    "La liga": {
+        "Barcelona": {
+            "name": "Barcelona",
+            "id": 8634,
+            "Players": {
+                "93447":{
+                    "name": "Robert Lewandowski"
+                },
+
+                "184554":{
+                    "name": "Marc-Andre ter Stegen"
+                },
+
+                "282676":{
+                    "name": "Inigo Martinez"
+                },
+
+                "614834":{
+                    "name": "Dani Olmo"
+                },
+
+                "696679":{
+                    "name": "Raphinha"
+                },
+
+                "705450":{
+                    "name": "Jules Koundé"
+                },
+
+                "881771":{
+                    "name": "Ferran Torres"
+                },
+
+                "940573":{
+                    "name": "Eric Garcia"
+                },
+
+                "990996":{
+                    "name": "Inaki Pena"
+                },
+
+                "1083323":{
+                    "name": "Pedri"
+                },
+                
+                "1159237":{
+                    "name": "Pau Victor"
+                },
+
+                "1233404":{
+                    "name": "Pablo Torre"
+                },
+
+                "1254166":{
+                    "name": "Álex Balde"
+                },
+
+                "1384883":{
+                    "name": "Marc Casado"
+                },
+
+                "1404415":{
+                    "name": "Fermin Lopez"
+                },
+
+                "1435810":{
+                    "name": "Ander Astralaga"
+                },
+
+                "1467236":{
+                    "name": "Lamine Yamal"
+                },
+
+                "1490110":{
+                    "name": "Héctor Fort"
+                },
+
+                "1532137":{
+                    "name": "Pau Cubarsi"
+                },
+
+                "1598982":{
+                    "name": "Gerard Martin"
+                },
+
+                "1665435":{
+                    "name": "Sergi Dominguez"
+                }
+            }
+        },
+
+        "Real Valladolid": {
+            "name": "Real Valladolid",
+            "id": 10281,
+            "Players": {
+                "289278":{
+                    "name": "Darwin Machis"
+                },
+
+                "540415":{
+                    "name": "André Ferreira"
+                },
+
+                "553256":{
+                    "name": "Iván Sánchez"
+                },
+
+                "629579":{
+                    "name": "Mamadou Sylla"
+                },
+
+                "658658":{
+                    "name": "Selim Amallah"
+                },
+
+                "683761":{
+                    "name": "Javi Sánchez"
+                },
+
+                "705484":{
+                    "name": "Eray Cömert"
+                },
+
+                "737444":{
+                    "name": "Amath Ndiaye"
+                },
+
+                "766957":{
+                    "name": "Luis Pérez"
+                },
+
+                "821271":{
+                    "name": "Marcos de Sousa"
+                },
+                
+                "888167":{
+                    "name": "Kike Pérez"
+                },
+
+                "953065":{
+                    "name": "Stanko Juric"
+                },
+
+                "982692":{
+                    "name": "Karl Hein"
+                },
+
+                "1107951":{
+                    "name": "Cenk Özkacar"
+                },
+
+                "1118479":{
+                    "name": "Victor Meseguer"
+                },
+
+                "1169596":{
+                    "name": "Raul Moro"
+                },
+
+                "1231032":{
+                    "name": "Juanmi Latasa"
+                },
+
+                "1315344":{
+                    "name": "Chuki"
+                },
+
+                "1321605":{
+                    "name": "Mario Martin"
+                },
+
+                "1357723":{
+                    "name": "Lucas Rosa"
+                },
+
+                "1395716":{
+                    "name": "David Torres"
+                },
+
+                "1460341":{
+                    "name": "Koke"
+                },
+
+                "1670573":{
+                    "name": "Raul Chasco"
+                }
+
+            }
+
+        },
+
+        "Real Madrid": {
+            "name": "Real Madrid", 
+            "id": 8633,
+            "players": {
+                "31097":{
+                    "name": "Luka Modric"
+                },
+
+                "170323":{
+                    "name": "Thibaut Courtois"
+                },
+
+                "276738":{
+                    "name": "Antonio Rüdiger"
+                },
+
+                "282674":{
+                    "name": "Daniel Carvajal"
+                },
+
+                "359193":{
+                    "name": "Lucas Vázquez"
+                },
+
+                "531629":{
+                    "name": "Daniel Ceballos"
+                },
+
+                "623537":{
+                    "name": "Ferland Mendy"
+                },
+
+                "701154":{
+                    "name": "Kylian Mbappe"
+                },
+
+                "743533":{
+                    "name": "Federico Valverde"
+                },
+
+                "750027":{
+                    "name": "Brahim Diaz"
+                },
+
+                "750028":{
+                    "name": "Francisco Garcia"
+                },
+
+                "800882":{
+                    "name": "Andriy Lunin"
+                },
+
+                "844415":{
+                    "name": "Éder Militao"
+                },
+
+                "846033":{
+                    "name": "Vinicius Junior"
+                },
+
+                "895362":{
+                    "name": "Rodrygo"
+                },
+
+                "914458":{
+                    "name": "Aurélien Tchouaméni"
+                },
+
+                "1253890":{
+                    "name": "Arda Güler"
+                },
+
+                "1406729":{
+                    "name": "Endrick"
+                },
+
+                "1413963":{
+                    "name": "Jacobo Ramon"
+                },
+
+                "1484851":{
+                    "name": "Fran González"
+                }
+            }
+
+    
+        }
+
+    }
+
+
+
+
+}

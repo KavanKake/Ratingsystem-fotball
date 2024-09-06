@@ -2,7 +2,7 @@ import requests
 import json
 
 # URL til API-endepunktet
-url = "www.football-data.org/documentation/quickstart#filtering"
+url = ""
 
 # Gjør en GET-forespørsel til APIet
 response = requests.get(url)
