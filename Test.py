@@ -2,7 +2,7 @@ import requests
 import json
 
 # URL til API-endepunktet
-url = ""
+url = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/La liga .json"
 
 # Gjør en GET-forespørsel til APIet
 response = requests.get(url)
