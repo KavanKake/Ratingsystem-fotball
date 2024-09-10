@@ -1,19 +1,36 @@
-import requests
 import json
 
-# URL til API-endepunktet
-url = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/La liga .json"
+# Step 1: Load the JSON file
+file_path = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Laliga.json"
 
-# Gjør en GET-forespørsel til APIet
-response = requests.get(url)
+match_stats = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/BarcelonaVSRealValledolid.json"
 
-# Sjekk om forespørselen var vellykket
-if response.status_code == 200:
-    # Hent data fra API som JSON
-    data = response.json()
+# Open the file and load the JSON data
+with open(file_path, 'r') as file:
+    data = json.load(file)  # Load the JSON content into a Python dictionary
 
-    # Print ut hele datasettet i en lesbar form
-    print(json.dumps(data, indent=4))
-else:
-    print(f"Kunne ikke hente data. Statuskode: {response.status_code}")
+with open(match_stats,"r") as file:
+    stats = json.load(file)
+
+# Step 2: Access the 'Barcelona' data
+barcelona_data = data["La liga"]["Barcelona"]
+teams_stats = stats["content"]["playerStats"]
+
+
+# Step 4: Access specific parts (like Players)
+barcelona_players = barcelona_data["Players"]
+
+
+# Print all players from Barcelona
+for player_id, player_info in barcelona_players.items():
+    print(f"Player ID: {player_id}, Name: {player_info['name']}")
+
+
+    
+
+
+
+
+
+
 
