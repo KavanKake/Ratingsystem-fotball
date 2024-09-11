@@ -19,9 +19,12 @@ barcelona_players = barcelona_club["Players"]
 for player_id, player_info in barcelona_players.items():
     print(f"Player ID: {player_id}, Name: {player_info['name']}")
 
+
+
 print("   ")
 
 # TODO fiks løkke for skadede spillere. 
+
 
 for player_id, player_info in barcelona_players.items():
     match_stats = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/BarcelonaVSRealValledolid.json"
@@ -31,6 +34,9 @@ for player_id, player_info in barcelona_players.items():
     player_variabel_id = player_id
     team_stats = stats["content"]["playerStats"]
     player = team_stats[player_variabel_id]
+    
+
+
     print(player)
     print ("  ")
 
