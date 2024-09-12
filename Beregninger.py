@@ -1,14 +1,5 @@
 import json
 
-# Load data from the external JSON file
-def load_player_stats_from_file(filename):
-    with open(filename, 'r') as file:
-        return json.load(file)
-
-# Example of loading external data
-external_data_file = 'BarcelonaVSRealValledolid.json'
-external_player_stats = load_player_stats_from_file(external_data_file)
-
 # Player data from the API
 file_path = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Laliga.json"
 with open(file_path, 'r') as file:
