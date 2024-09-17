@@ -13,7 +13,26 @@ barcelona_players = barcelona_club["Players"]
 unavailable_id_list = []
 
 # Load match data
-match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
+print("1. FC Barcelona VS Athletic Club")
+print("2. FC Barcelona Vs Real Valledolid")
+print("3. Girona Vs FC Barcelona")
+print("4. Rayo Vallecano Vs FC Barcelona")
+print("5. Valencia Vs FC Barcelona")
+which_match = int(input("Choice one of the matches above!"))
+
+if which_match == 1: 
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSAthleticClub.json"
+elif which_match == 2: 
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSRealValledolid.json"
+elif which_match == 3: 
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
+elif which_match == 4: 
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/RayoVallecanoVSBarcelona.json"
+elif which_match == 5: 
+    match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/ValenciaVSBarcelona.json"
+else: 
+    print("invalid answar, please choise a number from 1-5!")
+
 with open(match_file, "r") as file:
     lineup = json.load(file)
 
@@ -50,6 +69,7 @@ for player_id, player_info in barcelona_players.items():
         player_mystats = player_allstats["stats"]
         if player_mystats == []:
             print(f"Player ID: {player_id}, Name: {player_info['name']}, was benched")
+            print("")
         else: 
             # Print player stats
             print(f"Player ID: {player_id}, Name: {player_info['name']}")
