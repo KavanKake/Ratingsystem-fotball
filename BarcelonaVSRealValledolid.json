@@ -15489,7 +15489,7 @@
           "match",
           "country"
         ],
-        "homeTeam": {
+      "homeTeam": {
           "id": 8634,
           "name": "Barcelona",
           "rating": 7.7,
