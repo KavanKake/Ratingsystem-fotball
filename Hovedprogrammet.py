@@ -1,7 +1,7 @@
 import json
 
 # Load player data for Barcelona from the API
-file_path = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Laliga.json"
+file_path = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/League_apis/Laliga.json"
 with open(file_path, 'r') as file:
     player_data = json.load(file)  # Load the JSON content into a Python dictionary
 barcelona_club = player_data["La liga"]["Barcelona"]
@@ -13,7 +13,7 @@ barcelona_players = barcelona_club["Players"]
 unavailable_id_list = []
 
 # Load match data
-match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/BarcelonaVSRealValledolid.json"
+match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
 with open(match_file, "r") as file:
     lineup = json.load(file)
 
@@ -48,11 +48,13 @@ for player_id, player_info in barcelona_players.items():
     if player_id in team_stats:
         player_allstats = team_stats[player_id]
         player_mystats = player_allstats["stats"]
-        
-        # Print player stats
-        print(f"Player ID: {player_id}, Name: {player_info['name']}")
-        print(player_mystats)
-        print("")
+        if player_mystats == []:
+            print(f"Player ID: {player_id}, Name: {player_info['name']}, was benched")
+        else: 
+            # Print player stats
+            print(f"Player ID: {player_id}, Name: {player_info['name']}")
+            print(player_mystats)
+            print("")
     else:
         print(f"No stats available for Player ID: {player_id}, Name: {player_info['name']}")
         print("")
