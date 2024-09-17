@@ -10,33 +10,36 @@ barcelona_players = barcelona_club["Players"]
 
 
 # Hometeam or awayteam and unavailable players
-unavailable_player_ids_list = []
+unavailable_id_list = []
 
 # Load match data
-match_BarcelonaVSRealValledolid = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/BarcelonaVSRealValledolid.json"
-with open(match_BarcelonaVSRealValledolid, "r") as file:
+match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/BarcelonaVSRealValledolid.json"
+with open(match_file, "r") as file:
     lineup = json.load(file)
 
 # Check if Barcelona is the home team
 hometeam_id = lineup["content"]["lineup"]["homeTeam"]["id"]
 
 if hometeam_id == team_id: 
-    unavailable_player_ids = lineup["content"]["lineup"]["homeTeam"]["unavailable"]
+    unavailable = lineup["content"]["lineup"]["homeTeam"]["unavailable"]
 else:
-    unavailable_player_ids = lineup["content"]["lineup"]["awayTeam"]["unavailable"]
+    unavailable = lineup["content"]["lineup"]["awayTeam"]["unavailable"]
 
 # Add unavailable player IDs to list
-for player in unavailable_player_ids:
-    unavailable_player_ids_list.append(player["id"])
+for player in unavailable:
+    unavailable_id_list.append(player["id"])
+
+
+
 
 # Iterate over Barcelona players and print stats for available players
 for player_id, player_info in barcelona_players.items():
     # Skip players if they are in the unavailable list
-    if player_id in unavailable_player_ids_list:
+    if player_id in unavailable_id_list:
         continue  # Skip this player
     
     # Load match stats
-    with open(match_BarcelonaVSRealValledolid, "r") as file:
+    with open(match_file, "r") as file:
         stats = json.load(file)
     
     team_stats = stats["content"]["playerStats"]
