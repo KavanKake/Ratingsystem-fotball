@@ -279,7 +279,7 @@
         "Real Madrid": {
             "name": "Real Madrid", 
             "id": 8633,
-            "players": {
+            "Players": {
                 "31097":{
                     "name": "Luka Modric",
                     "position": 10
@@ -377,6 +377,155 @@
 
                 "1484851":{
                     "name": "Fran González",
+                    "position": 1
+                }
+            }
+
+    
+        },
+
+
+        "Atletic Club": {
+            "name": "Atletic Club", 
+            "id": 8315,
+            "Players": {
+                "1401997":{
+                    "name": "Álex Padilla",
+                    "position": 1
+                },
+
+                "616544":{
+                    "name": "Inigo Lekue",
+                    "position": 10
+                },
+
+                "639450":{
+                    "name": "Yeray Álvarez",
+                    "position": 10
+                },
+
+                "940743":{
+                    "name": "Daniel Vivian",
+                    "position": 10
+                },
+
+                "80295":{
+                    "name": "Yuri Berchiche",
+                    "position": 10
+                },
+
+                "1229176":{
+                    "name": "Benat Prados",
+                    "position": 10
+                },
+
+                "616545":{
+                    "name": "Mikel Vesga",
+                    "position": 10
+                },
+
+                "574629":{
+                    "name": "Alex Berenguer",
+                    "position": 10
+                },
+
+                "950545":{
+                    "name": "Oihan Sancet",
+                    "position": 10
+                },
+
+                "1202110":{
+                    "name": "Nico Williams",
+                    "position": 10
+                },
+
+                "604105":{
+                    "name": "Inaki Williams",
+                    "position": 10
+                },
+
+                "1436270":{
+                    "name": "Unai Gomez",
+                    "position": 1
+                },
+
+                "1553099":{
+                    "name": "Mikel Jauregizar",
+                    "position": 10
+                },
+
+                "1331037":{
+                    "name": "Malcom Ares",
+                    "position": 10
+                },
+
+                "164676":{
+                    "name": "Ander Herrera",
+                    "position": 10
+                },
+
+                "711231":{
+                    "name": "Gorka Guruzeta",
+                    "position": 10
+                },
+
+                "1280020":{
+                    "name": "Julen Agirrezabala",
+                    "position": 10
+                },
+
+                "1669214":{
+                    "name": "Oier Gastesi",
+                    "position": 10
+                },
+
+                "839893":{
+                    "name": "Andoni Gorosabel",
+                    "position": 10
+                },
+
+                "181297":{
+                    "name": "Oscar de Marcos",
+                    "position": 1
+                },
+
+                "1425770":{
+                    "name": "Unai Eguiluz",
+                    "position": 1
+                },
+
+                "1331249":{
+                    "name": "Adama Boiro",
+                    "position": 1
+                },
+
+                "1205433":{
+                    "name": "Javier Marton",
+                    "position": 1
+                },
+
+                "660625":{
+                    "name": "Unai Simon",
+                    "position": 1
+                },
+
+                "1191407":{
+                    "name": "Aitor Paredes",
+                    "position": 1
+                },
+
+                "282462":{
+                    "name": "Inigo Ruiz de Galarreta",
+                    "position": 1
+                },
+
+                "1355668":{
+                    "name": "Alvaro Djalo",
+                    "position": 1
+                },
+
+                "1203614":{
+                    "name": "Nico Serrano",
                     "position": 1
                 }
             }
