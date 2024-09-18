@@ -2,7 +2,6 @@
     "La liga": {
         "Barcelona": {
             "name": "Barcelona",
-            "id": 8634,
             "Players": {
                 "93447":{
                     "name": "Robert Lewandowski",
@@ -384,9 +383,8 @@
     
         },
 
-
-        "Atletic Club": {
-            "name": "Atletic Club", 
+        "Athletic Club": {
+            "name": "Athletic Club", 
             "id": 8315,
             "Players": {
                 "1401997":{
@@ -471,12 +469,12 @@
 
                 "1280020":{
                     "name": "Julen Agirrezabala",
-                    "position": 10
+                    "position": 1
                 },
 
                 "1669214":{
                     "name": "Oier Gastesi",
-                    "position": 10
+                    "position": 1
                 },
 
                 "839893":{
@@ -486,12 +484,12 @@
 
                 "181297":{
                     "name": "Oscar de Marcos",
-                    "position": 1
+                    "position": 10
                 },
 
                 "1425770":{
                     "name": "Unai Eguiluz",
-                    "position": 1
+                    "position": 10
                 },
 
                 "1331249":{
@@ -501,7 +499,7 @@
 
                 "1205433":{
                     "name": "Javier Marton",
-                    "position": 1
+                    "position": 10
                 },
 
                 "660625":{
@@ -511,31 +509,607 @@
 
                 "1191407":{
                     "name": "Aitor Paredes",
-                    "position": 1
+                    "position": 10
                 },
 
                 "282462":{
                     "name": "Inigo Ruiz de Galarreta",
-                    "position": 1
+                    "position": 10
                 },
 
                 "1355668":{
                     "name": "Alvaro Djalo",
-                    "position": 1
+                    "position": 10
                 },
 
                 "1203614":{
                     "name": "Nico Serrano",
-                    "position": 1
+                    "position": 10
                 }
             }
+        },
 
-    
+        "Real Betis": {
+            "name": "Real Betis", 
+            "id": 8603,
+            "Players": {
+                "361717": {
+                    "name": "Rui Silva",
+                    "position": 1
+                    },
+                "467689": {
+                    "name": "Youssouf Sabaly",
+                    "position": 10
+                    },
+                "420568": {
+                    "name": "Diego Llorente",
+                    "position": 10
+                    },
+                "1188375": {
+                    "name": "Natan",
+                    "position": 10
+                    },
+                "815465": {
+                    "name": "Romain Perraud",
+                    "position": 10
+                    },
+                "640220": {
+                    "name": "Marc Roca",
+                    "position": 10
+                    },
+                "257865": {
+                    "name": "William Carvalho",
+                    "position": 10
+                    },
+                "1158514": {
+                    "name": "Rodri",
+                    "position": 10
+                },
+                "683450": {
+                    "name": "Pablo Fornals",
+                    "position": 10
+                },
+                "1209399": {
+                    "name": "Abdessamad Ezzalzouli",
+                    "position": 10
+                },
+                "676533": {
+                    "name": "Aitor Ruibal",
+                    "position": 10
+                },
+                "1173678": {
+                    "name": "Johnny",
+                    "position": 10
+                },
+                "1339347": {
+                    "name": "Vitor Roque",
+                    "position": 10
+                },
+                "1434889": {
+                    "name": "Assane Diao",
+                    "position": 10
+                },
+                "1082930": {
+                    "name": "Iker Losada",
+                    "position": 10
+                },
+                "191873": {
+                    "name": "Juanmi",
+                    "position": 10
+                },
+                "169756": {
+                    "name": "Adrian",
+                    "position": 10
+                },
+                "930288": {
+                    "name": "Francisco Vieites",
+                    "position": 1
+                },
+                "427438": {
+                    "name": "Hector Bellerin",
+                    "position": 10
+                },
+                "1324100": {
+                    "name": "Lucas Alcázar",
+                    "position": 10
+                },
+                "115591": {
+                    "name": "Ricardo Rodriguez",
+                    "position": 10
+                },
+                "1310480": {
+                    "name": "Sergi Altimira",
+                    "position": 10
+                },
+                "361724": {
+                    "name": "Ezequiel Ávila",
+                    "position": 10
+                },
+                "191315": {
+                    "name": "Isco",
+                    "position": 10
+                },
+                "201939": {
+                    "name": "Cédric Bakambu",
+                    "position": 10
+                }
+            }
+                  
+        }, 
+
+        "Girona": {
+            "name": "Girona", 
+            "id": 8603,
+            "Players": {
+                "278285": {
+                    "name": "Paulo Gazzaniga",
+                    "position": 1
+                },
+                "1112511": {
+                    "name": "Alejandro Francés",
+                    "position": 10
+                },
+                "215584": {
+                    "name": "David Lopez",
+                    "position": 10
+                },
+                "161012": {
+                    "name": "Daley Blind",
+                    "position": 10
+                },
+                "942379": {
+                    "name": "Miguel Gutiérrez",
+                    "position": 10
+                },
+                "1433032": {
+                    "name": "Jhon Solis",
+                    "position": 10
+                },
+                "967871": {
+                    "name": "Iván Martin",
+                    "position": 10
+                },
+                "970692": {
+                    "name": "Bryan Gil",
+                    "position": 10
+                },
+                "564847": {
+                    "name": "Viktor Tsigankov",
+                    "position": 10
+                },
+                "704151": {
+                    "name": "Arnaut Danjuma",
+                    "position": 10
+                },
+                "748380": {
+                    "name": "Abel Ruiz",
+                    "position": 10
+                },
+                "1277380": {
+                    "name": "Yaser Asprilla",
+                    "position": 10
+                },
+                "282692": {
+                    "name": "Cristian Portu",
+                    "position": 10
+                },
+                "612836": {
+                    "name": "Donny van de Beek",
+                    "position": 10
+                },
+                "58294": {
+                    "name": "Cristhian Stuani",
+                    "position": 10
+                },
+                "1194892": {
+                    "name": "Arnau Martinez",
+                    "position": 10
+                },
+                "246422": {
+                    "name": "Juan Carlos",
+                    "position": 1
+                },
+                "532942": {
+                    "name": "Pau Lopez",
+                    "position": 1
+                },
+                "174862": {
+                    "name": "Juanpe",
+                    "position": 10
+                },
+                "798029": {
+                    "name": "Ladislav Krejci",
+                    "position": 10
+                },
+                "1334575": {
+                    "name": "Gabriel Misehouy",
+                    "position": 10
+                },
+                "846970": {
+                    "name": "Bojan Miovski",
+                    "position": 10
+                },
+                "1680136": {
+                    "name": "Raul Martinez",
+                    "position": 10
+                },
+                "730901": {
+                    "name": "Yangel Herrera",
+                    "position": 10
+                }
+                }
+        }, 
+
+        "Las Palmas": {
+            "name": "Las Palmas", 
+            "id": 8603,
+            "Players": {
+                "212512": {
+                    "name": "Jasper Cillessen",
+                    "position": 1
+                },
+                "1106895": {
+                    "name": "Marvin Park",
+                    "position": 10
+                },
+                "879609": {
+                    "name": "Alex Suárez",
+                    "position": 10
+                },
+                "551805": {
+                    "name": "Scott McKenna",
+                    "position": 10
+                },
+                "1225450": {
+                    "name": "Mika Mármol",
+                    "position": 10
+                },
+                "213502": {
+                    "name": "José Campana",
+                    "position": 10
+                },
+                "616531": {
+                    "name": "Javier Munoz",
+                    "position": 10
+                },
+                "936206": {
+                    "name": "Kirian Rodriguez",
+                    "position": 10
+                },
+                "477615": {
+                    "name": "Sandro Ramirez",
+                    "position": 10
+                },
+                "509151": {
+                    "name": "Oliver McBurnie",
+                    "position": 10
+                },
+                "1184694": {
+                    "name": "Alberto Moleiro",
+                    "position": 10
+                },
+                "780311": {
+                    "name": "Benito",
+                    "position": 10
+                },
+                "753724": {
+                    "name": "Viti",
+                    "position": 10
+                },
+                "573748": {
+                    "name": "Jaime Mata",
+                    "position": 10
+                },
+                "937397": {
+                    "name": "Enzo Loiodice",
+                    "position": 10
+                },
+                "916546": {
+                    "name": "Manuel Fuster",
+                    "position": 10
+                },
+                "1562698": {
+                    "name": "Álvaro Killane",
+                    "position": 10
+                },
+                "512040": {
+                    "name": "Alex Munoz",
+                    "position": 10
+                },
+                "1526611": {
+                    "name": "Juanma Herzog",
+                    "position": 10
+                },
+                "1664739": {
+                    "name": "Aboubacar Bassinga",
+                    "position": 10
+                },
+                "873585": {
+                    "name": "Fabio González",
+                    "position": 10
+                },
+                "1110836": {
+                    "name": "Ivan Gil",
+                    "position": 10
+                },
+                "792249": {
+                    "name": "Marc Cardona",
+                    "position": 10
+                },
+                "920095": {
+                    "name": "Pejino",
+                    "position": 10
+                },
+                "449241": {
+                    "name": "Adnan Januzaj",
+                    "position": 10
+                },
+                "930024":{
+                    "name": "Dinko Horkas",
+                    "position": 1
+                }
+            }     
+        },
+
+        "Valencia":{
+            "name": "Valencia", 
+            "id": 8603,
+            "Players": {
+                "948800": {
+                    "name": "Giorgi Mamardashvili",
+                    "position": 1
+                },
+                "992052": {
+                    "name": "Thierry Correia",
+                    "position": 10
+                },
+                "1298907": {
+                    "name": "Cristhian Mosquera",
+                    "position": 10
+                },
+                "1506480": {
+                    "name": "Yarek Gasiorowski",
+                    "position": 10
+                },
+                "1220187": {
+                    "name": "Jesus Vázquez",
+                    "position": 10
+                },
+                "640492": {
+                    "name": "Rafa Mir",
+                    "position": 10
+                },
+                "1284429": {
+                    "name": "Javier Guerra",
+                    "position": 10
+                },
+                "673689": {
+                    "name": "Pepelu",
+                    "position": 10
+                },
+                "1284434": {
+                    "name": "Diego Lopez",
+                    "position": 10
+                },
+                "777028": {
+                    "name": "André Almeida",
+                    "position": 10
+                },
+                "929838": {
+                    "name": "Hugo Duro",
+                    "position": 10
+                },
+                "32761": {
+                    "name": "Ruben Baraja",
+                    "position": 10
+                },
+                "261609": {
+                    "name": "Dimitri Foulquier",
+                    "position": 10
+                },
+                "863166": {
+                    "name": "Daniel Gomez",
+                    "position": 10
+                },
+                "1437469": {
+                    "name": "Martin Tejon",
+                    "position": 10
+                },
+                "1600732": {
+                    "name": "David Otorbi Ejededawe",
+                    "position": 10
+                },
+                "1120936": {
+                    "name": "Hugo Guillamon",
+                    "position": 10
+                },
+                "1585393": {
+                    "name": "Raul Jimenez",
+                    "position": 10
+                },
+                "254241": {
+                    "name": "Stole Dimitrievski",
+                    "position": 1
+                },
+                "1107951": {
+                    "name": "Cenk Özkacar",
+                    "position":10 
+                },
+                "1311985": {
+                    "name": "César Tárrega",
+                    "position": 10
+                },
+                "1443858": {
+                    "name": "Rodrigo Abajas",
+                    "position": 10
+                },
+                "1670484": {
+                    "name": "Ali Fadal",
+                    "position": 10
+                },
+                "1162659": {
+                    "name": "Alberto Mari",
+                    "position": 10
+                },
+                "489240": {
+                    "name": "Jaume Domenech",
+                    "position": 1
+                },
+                "391058": {
+                    "name": "José Gayà",
+                    "position": 10
+                },
+                "561198": {
+                    "name": "Mouctar Diakhaby",
+                    "position": 10
+                }
+                }
+        },
+
+        "Rayo Vallecano":{
+            "name": "Rayo Vallecano",
+            "id": 8370,
+            "Players": {
+                "1041445": {
+                    "name": "Dani Cárdenas",
+                    "position": 1
+                },
+                "264885": {
+                    "name": "Iván Balliu",
+                    "position": 10
+                },
+                "184521": {
+                    "name": "Florian Lejeune",
+                    "position": 10
+                },
+                "776591": {
+                    "name": "Abdul Mumin",
+                    "position": 10
+                },
+                "526968": {
+                    "name": "Alfonso Espino",
+                    "position": 10
+                },
+                "797901": {
+                    "name": "Jorge de Frutos",
+                    "position": 10
+                },
+                "571615": {
+                    "name": "Unai Lopez",
+                    "position": 10
+                },
+                "956622": {
+                    "name": "Oscar Valentin",
+                    "position": 10
+                },
+                "474658": {
+                    "name": "Álvaro Garcia",
+                    "position": 10
+                },
+                "980422": {
+                    "name": "Sergio Camello",
+                    "position": 10
+                },
+                "638010": {
+                    "name": "Isi Palazon",
+                    "position": 10
+                },
+                "872396": {
+                    "name": "Pathé Ciss",
+                    "position": 10
+                },
+                "482331": {
+                    "name": "Adrián Embarba",
+                    "position": 10
+                },
+                "522234": {
+                    "name": "Gerard Gumbau",
+                    "position": 10
+                },
+                "915264": {
+                    "name": "Randy Nteka",
+                    "position": 10
+                },
+                "988805": {
+                    "name": "Pep Chavarria",
+                    "position": 10
+                },
+                "621415": {
+                    "name": "Augusto Batalla",
+                    "position": 1
+                },
+                "970578": {
+                    "name": "Andrei Ratiu",
+                    "position": 10
+                },
+                "231821": {
+                    "name": "Aridane Hernández",
+                    "position": 10
+                },
+                "1411818": {
+                    "name": "Pelayo Fernandez",
+                    "position": 10
+                },
+                "21414": {
+                    "name": "Oscar Trejo",
+                    "position": 10
+                },
+                "715069": {
+                    "name": "Pedro Diaz",
+                    "position": 10
+                },
+                "1670225": {
+                    "name": "Etienne Eto'o Pineda",
+                    "position": 10
+                }
+                
+                  
+                
+
+
+            }
+
+
+
+
+        }    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
-
     }
 
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+

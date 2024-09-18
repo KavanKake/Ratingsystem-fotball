@@ -13,22 +13,23 @@ barcelona_players = barcelona_club["Players"]
 unavailable_id_list = []
 
 # Load match data
-print("1. FC Barcelona VS Athletic Club")
-print("2. FC Barcelona Vs Real Valledolid")
-print("3. Girona Vs FC Barcelona")
-print("4. Rayo Vallecano Vs FC Barcelona")
-print("5. Valencia Vs FC Barcelona")
+print("1. Valencia Vs FC Barcelona")
+print("2. FC Barcelona VS Athletic Club")
+print("3. Rayo Vallecano Vs FC Barcelona")
+print("4. FC Barcelona Vs Real Valledolid")
+print("5. Girona Vs FC Barcelona")
+
 which_match = int(input("Choice one of the matches above!"))
 
-if which_match == 1: 
+if which_match == 2: 
     match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSAthleticClub.json"
-elif which_match == 2: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSRealValledolid.json"
-elif which_match == 3: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
 elif which_match == 4: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/RayoVallecanoVSBarcelona.json"
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSRealValledolid.json"
 elif which_match == 5: 
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
+elif which_match == 3: 
+    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/RayoVallecanoVSBarcelona.json"
+elif which_match == 1: 
     match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/ValenciaVSBarcelona.json"
 else: 
     print("invalid answar, please choise a number from 1-5!")
