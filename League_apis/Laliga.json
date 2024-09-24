@@ -1073,32 +1073,240 @@
 
 
 
-        }    
+        }, 
+        
+        "Mallorca":{
+            "name": "Mallorca",
+            "id": 8661,
+            "Players": {
+                "651910": {
+                    "name": "Dominik Greif",
+                    "position": 1
+                },
+                "673356": {
+                    "name": "Pablo Maffeo",
+                    "position": 10
+                },
+                "521846": {
+                    "name": "Martin Valjent",
+                    "position": 10
+                },
+                "640231": {
+                    "name": "Antonio Raillo",
+                    "position": 10
+                },
+                "474673": {
+                    "name": "Johan Mojica",
+                    "position": 10
+                },
+                "1130583": {
+                    "name": "Samu",
+                    "position": 10
+                },
+                "359191": {
+                    "name": "Omar Mascarell",
+                    "position": 10
+                },
+                "430856": {
+                    "name": "Takuma Asano",
+                    "position": 10
+                },
+                "282472": {
+                    "name": "Sergi Darder",
+                    "position": 10
+                },
+                "213516": {
+                    "name": "Daniel Rodriguez",
+                    "position": 10
+                },
+                "517052": {
+                    "name": "Vedat Muriqi",
+                    "position": 10
+                },
+                "477367": {
+                    "name": "Jagoba Arrasate",
+                    "position": 10
+                },
+                "1055327": {
+                    "name": "Antonio Sánchez",
+                    "position": 10
+                },
+                "784241": {
+                    "name": "Manu Morlanes",
+                    "position": 10
+                },
+                "544312": {
+                    "name": "Cyle Larin",
+                    "position": 10
+                },
+                "896402": {
+                    "name": "José Copete",
+                    "position": 10
+                },
+                "33630": {
+                    "name": "Iván Cuéllar",
+                    "position": 1
+                },
+                "1187702": {
+                    "name": "Leo Román",
+                    "position": 1
+                },
+                "844478": {
+                    "name": "Mateu Morey",
+                    "position": 10
+                },
+                "768432": {
+                    "name": "Siebe van der Heyden",
+                    "position": 10
+                },
+                "674518": {
+                    "name": "Toni Lato",
+                    "position": 10
+                },
+                "245311": {
+                    "name": "Abdon Prats",
+                    "position": 10
+                },
+                "1321601": {
+                    "name": "Daniel Luna",
+                    "position": 10
+                },
+                "1675933": {
+                    "name": "Marc Domenech",
+                    "position": 10
+                },
+                "1315828": {
+                    "name": "Javi Llabrés",
+                    "position": 10
+                }
+                }
+                
+            },
 
+        "Real Sociadad":{
+            "name": "Real Sociadad",
+            "id": 8661,
+            "Players": {
+                "616539": {
+                    "name": "Alex Remiro",
+                    "position": 1
+                },
+                "1249284": {
+                    "name": "Jon Aramburu",
+                    "position": 10
+                },
+                "698653": {
+                    "name": "Igor Zubeldia",
+                    "position": 10
+                },
+                "617310": {
+                    "name": "Nayef Aguerd",
+                    "position": 10
+                },
+                "1159181": {
+                    "name": "Javi Lopez",
+                    "position": 10
+                },
+                "1031325": {
+                    "name": "Martin Zubimendi",
+                    "position": 10
+                },
+                "959597": {
+                    "name": "Luka Sucic",
+                    "position": 10
+                },
+                "495222": {
+                    "name": "Sheraldo Becker",
+                    "position": 10
+                },
+                "848289": {
+                    "name": "Takefusa Kubo",
+                    "position": 10
+                },
+                "844477": {
+                    "name": "Sergio Gomez",
+                    "position": 10
+                },
+                "590494": {
+                    "name": "Umar Sadiq",
+                    "position": 10
+                },
+                "1002618": {
+                    "name": "Ander Barrenetxea",
+                    "position": 10
+                },
+                "1097229": {
+                    "name": "Orri Oskarsson",
+                    "position": 10
+                },
+                "1112072": {
+                    "name": "Jon Pacheco",
+                    "position": 10
+                },
+                "1210647": {
+                    "name": "Benat Turrientes",
+                    "position": 10
+                },
+                "999159": {
+                    "name": "Aihen Munoz",
+                    "position": 10
+                },
+                "1217043": {
+                    "name": "Unai Marrero",
+                    "position": 1
+                },
+                "636570": {
+                    "name": "Álvaro Odriozola",
+                    "position": 10
+                },
+                "607148": {
+                    "name": "Aritz Elustondo",
+                    "position": 10
+                },
+                "1523234": {
+                    "name": "Jon Martin",
+                    "position": 10
+                },
+                "1131957": {
+                    "name": "Jon Olasagasti",
+                    "position": 10
+                },
+                "1293912": {
+                    "name": "Pablo Marin",
+                    "position": 10
+                },
+                "678234": {
+                    "name": "Mikel Oyarzabal",
+                    "position": 10
+                },
+                "1187767": {
+                    "name": "Urko González",
+                    "position": 10
+                },
+                "426892": {
+                    "name": "Hamari Traoré",
+                    "position": 10
+                },
+                "1175610": {
+                    "name": "Arsen Zakharyan",
+                    "position": 10
+                },
+                "640122": {
+                    "name": "Brais Méndez",
+                    "position": 10
+                },
+                "1325585":{
+                    "name":"Arana",
+                    "position": 1
+                }
+                  }
+                  
+            }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
+        
     }
+}
+
 
 
 
