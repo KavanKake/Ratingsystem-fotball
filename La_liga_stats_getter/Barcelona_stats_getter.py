@@ -45,17 +45,46 @@ with open(match_file, "r") as file:
 # Check if Barcelona is the home team
 hometeam_id = lineup["content"]["lineup"]["homeTeam"]["id"]
 
+print("")
 if hometeam_id == team_id: 
+    hometeam = True 
     unavailable = lineup["content"]["lineup"]["homeTeam"]["unavailable"]
 else:
+    awayteam = True
     unavailable = lineup["content"]["lineup"]["awayTeam"]["unavailable"]
 
 # Add unavailable player IDs to list
 for player in unavailable:
     unavailable_id_list.append(player["id"])
 
+hometeam_score = lineup["header"]["teams"][0]["score"]
+awayteam_score = lineup["header"]["teams"][1]["score"]
+
+
+
+
 
 def poeng_regning(): 
+    # Check if Barcelona is the home team
+    hometeam_id = lineup["content"]["lineup"]["homeTeam"]["id"]
+
+    if hometeam_id == team_id: 
+        hometeam = 0
+        awayteam = 10
+        unavailable = lineup["content"]["lineup"]["homeTeam"]["unavailable"]
+    else:
+        awayteam = 1
+        hometeam = 10
+        unavailable = lineup["content"]["lineup"]["awayTeam"]["unavailable"]
+
+    # Add unavailable player IDs to list
+    for player in unavailable:
+        unavailable_id_list.append(player["id"])
+
+    hometeam_score = lineup["header"]["teams"][0]["score"]
+    awayteam_score = lineup["header"]["teams"][1]["score"]
+
+
 
     # Iterate over Barcelona players and print stats for available players
     for player_id, player_info in barcelona_players.items():
@@ -78,10 +107,11 @@ def poeng_regning():
                 print(f"Player ID: {player_id}, Name: {player_info['name']}, was benched")
                 print("")
             else: 
+                print(f"Player ID: {player_id}, Name: {player_info['name']}")
                 position = player_info["position"]
                 if position == 10: 
                     spiller_poeng = 0
-                    print(f"Player ID: {player_id}, Name: {player_info['name']}")
+                    
 # minutes played
                     minutes_played = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Minutes played"]["stat"]["value"]
                     print(f"{minutes_played} minutes")
@@ -120,36 +150,27 @@ def poeng_regning():
                     passning_prosent = ((passninger_truffet/passninger_totalt)*100)
                     passning_prosent = round(passning_prosent, 2)
                     print(f"{passning_prosent} % passningsprosent")
-                    if passning_prosent <= 10: 
-                        spiller_poeng += 0.1
-                    elif passning_prosent <= 20 and passning_prosent > 10: 
+                    if passning_prosent <= 20: 
                         spiller_poeng += 0.2
-                    elif passning_prosent <= 30 and passning_prosent > 20: 
-                        spiller_poeng += 0.3
-                    elif passning_prosent <= 40 and passning_prosent > 30: 
+                    elif passning_prosent <= 40 and passning_prosent > 20: 
                         spiller_poeng += 0.4
-                    elif passning_prosent <= 50 and passning_prosent > 40: 
-                        spiller_poeng += 0.5
-                    elif passning_prosent <= 60 and passning_prosent > 50: 
+                    elif passning_prosent <= 60 and passning_prosent > 40: 
                         spiller_poeng += 0.6
-                    elif passning_prosent <= 70 and passning_prosent > 60: 
-                        spiller_poeng += 0.7
-                    elif passning_prosent <= 80 and passning_prosent > 70: 
+                    elif passning_prosent <= 80 and passning_prosent > 60: 
                         spiller_poeng += 0.8
-                    elif passning_prosent <= 90 and passning_prosent > 80: 
-                        spiller_poeng += 0.9
-                    elif passning_prosent <= 100 and passning_prosent > 90: 
+                    elif passning_prosent <= 100 and passning_prosent > 80: 
                         spiller_poeng += 1
+
 # Passing
 # Sjanser skapt
                     sjanser_skapt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Chances created"]["stat"]["value"]
                     print(f"{sjanser_skapt} sjanse(r) skapt")
                     if sjanser_skapt <= 1: 
-                        spiller_poeng += 0.2
-                    elif sjanser_skapt == 2 or sjanser_skapt == 3: 
                         spiller_poeng += 0.4
+                    elif sjanser_skapt == 2 or sjanser_skapt == 3: 
+                        spiller_poeng += 0.6
                     elif sjanser_skapt >= 4: 
-                        spiller_poeng += 0.75
+                        spiller_poeng += 1
 
 
 # Sjanser skapt
@@ -171,26 +192,66 @@ def poeng_regning():
                     if skudd_på_mål == 1:
                         spiller_poeng += 0
                     elif skudd_på_mål == 2 or skudd_på_mål == 3: 
-                        spiller_poeng += 0.2
+                        spiller_poeng += 0.3
                     elif skudd_på_mål == 4 or skudd_på_mål == 5: 
-                        spiller_poeng += 0.4
+                        spiller_poeng += 0.5
                     elif skudd_på_mål > 5: 
                         spiller_poeng += 0.75
 # Skudd på mål
-# Skudd treffsikkerhet
+# Duels won 
+                    dueler = stats["content"]["playerStats"][player_id]["stats"][3]["stats"]
+                    if "Duels won" in dueler:
+                        duels_won = stats["content"]["playerStats"][player_id]["stats"][3]["stats"]["Duels won"]["stat"]["value"]
+                        print(f"{duels_won} dueler vunnet")
+                        if duels_won <= 2: 
+                            spiller_poeng += 0.3
+                        elif duels_won > 2 and duels_won <= 4: 
+                            spiller_poeng += 0.6
+                        elif duels_won >= 5: 
+                            spiller_poeng += 1
 
-
-
+                    else: 
+                        print("Dueler vunnet: Ikke tilgjenglig")
+# Duels won 
+# Taklinger vunnet
+                    taklinger_vunnet = stats["content"]["playerStats"][player_id]["stats"][2]["stats"]["Tackles won"]["stat"]["value"]
+                    print(f"{taklinger_vunnet} takligner funnet")
+                    if taklinger_vunnet <= 2: 
+                        spiller_poeng += 0.2
+                    elif taklinger_vunnet > 2 and taklinger_vunnet < 4: 
+                        spiller_poeng += 0.4
+                    elif taklinger_vunnet >= 5: 
+                        spiller_poeng += 0.6
+# Taklinger vunnet 
+# Cleansheet
+                    if hometeam == 0: 
+                        if awayteam_score == 0: 
+                            print("Cleansheet")
+                            spiller_poeng += 0.5
+                        else: 
+                            print("Ikke cleensheet")
+                    elif awayteam == 1: 
+                        if hometeam_score == 0: 
+                            print("Cleansheet")
+                            spiller_poeng += 0.5
+                        else: 
+                            print("Ikke cleansheet")
+# Cleansheet
+# Poeng for utespillere
+                    if minutes_played < 10: 
+                        print("Spiller spilte for lite tid til å kalkulere poeng")
+                    else: 
+                        spiller_poeng = round(spiller_poeng, 2)
+                        print(f"{spiller_poeng} poeng")
+# Poeng for utespillere
 
 # Keeper
                 elif position == 1: 
                     print("Keeper")
 # Keeper
             
-# Poeng
-                spiller_poeng = round(spiller_poeng, 2)
-                print(f"{spiller_poeng} poeng")
-# Poeng
+
+                
                 print("")
         else:
             print(f"No stats available for Player ID: {player_id}, Name: {player_info['name']}")
