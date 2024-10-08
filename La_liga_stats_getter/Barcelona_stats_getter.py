@@ -185,7 +185,7 @@ def poeng_regning():
                         spiller_poeng -= 0.2
                     elif mistet_ballen > 5: 
                         spiller_poeng -= 0.3
-# Mistet ballen 
+# Mistet ballen
 # Skudd på mål
                     skudd_på_mål = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Total shots"]["stat"]["value"]
                     print(f"{skudd_på_mål} skudd på mål")
