@@ -149,7 +149,7 @@ def poeng_regning():
                     passninger_totalt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate passes"]["stat"]["total"]
                     passning_prosent = ((passninger_truffet/passninger_totalt)*100)
                     passning_prosent = round(passning_prosent, 2)
-                    print(f"{passning_prosent} % passningsprosent")
+                    print(f"{passning_prosent} % passing accuracy")
                     if passning_prosent <= 20: 
                         spiller_poeng += 0.2
                     elif passning_prosent <= 40 and passning_prosent > 20: 
@@ -164,7 +164,7 @@ def poeng_regning():
 # Passing
 # Sjanser skapt
                     sjanser_skapt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Chances created"]["stat"]["value"]
-                    print(f"{sjanser_skapt} sjanse(r) skapt")
+                    print(f"{sjanser_skapt} chances created")
                     if sjanser_skapt <= 1: 
                         spiller_poeng += 0.4
                     elif sjanser_skapt == 2 or sjanser_skapt == 3: 
@@ -176,7 +176,7 @@ def poeng_regning():
 # Sjanser skapt
 # Mistet ballen
                     mistet_ballen = stats["content"]["playerStats"][player_id]["stats"][1]["stats"]["Dispossessed"]["stat"]["value"]
-                    print(f"Mistet ballen:{mistet_ballen}")
+                    print(f"Dispossessed:{mistet_ballen}")
                     if mistet_ballen >= 1:
                         spiller_poeng += 0
                     elif mistet_ballen == 2 or mistet_ballen == 3: 
@@ -188,7 +188,7 @@ def poeng_regning():
 # Mistet ballen
 # Skudd på mål
                     skudd_på_mål = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Total shots"]["stat"]["value"]
-                    print(f"{skudd_på_mål} skudd på mål")
+                    print(f"{skudd_på_mål} shot at goal")
                     if skudd_på_mål == 1:
                         spiller_poeng += 0
                     elif skudd_på_mål == 2 or skudd_på_mål == 3: 
@@ -202,7 +202,7 @@ def poeng_regning():
                     dueler = stats["content"]["playerStats"][player_id]["stats"][3]["stats"]
                     if "Duels won" in dueler:
                         duels_won = stats["content"]["playerStats"][player_id]["stats"][3]["stats"]["Duels won"]["stat"]["value"]
-                        print(f"{duels_won} dueler vunnet")
+                        print(f"{duels_won} dueler won")
                         if duels_won <= 2: 
                             spiller_poeng += 0.3
                         elif duels_won > 2 and duels_won <= 4: 
@@ -215,7 +215,7 @@ def poeng_regning():
 # Duels won 
 # Taklinger vunnet
                     taklinger_vunnet = stats["content"]["playerStats"][player_id]["stats"][2]["stats"]["Tackles won"]["stat"]["value"]
-                    print(f"{taklinger_vunnet} takligner funnet")
+                    print(f"{taklinger_vunnet} tackles won")
                     if taklinger_vunnet <= 2: 
                         spiller_poeng += 0.2
                     elif taklinger_vunnet > 2 and taklinger_vunnet < 4: 
@@ -229,20 +229,20 @@ def poeng_regning():
                             print("Cleansheet")
                             spiller_poeng += 0.5
                         else: 
-                            print("Ikke cleensheet")
+                            print("Not cleensheet")
                     elif awayteam == 1: 
                         if hometeam_score == 0: 
                             print("Cleansheet")
                             spiller_poeng += 0.5
                         else: 
-                            print("Ikke cleansheet")
+                            print("Not cleansheet")
 # Cleansheet
 # Poeng for utespillere
                     if minutes_played < 10: 
-                        print("Spiller spilte for lite tid til å kalkulere poeng")
+                        print("Not enough time to calculate")
                     else: 
                         spiller_poeng = round(spiller_poeng, 2)
-                        print(f"{spiller_poeng} poeng")
+                        print(f"{spiller_poeng} points")
 # Poeng for utespillere
 
 # Keeper
@@ -251,7 +251,7 @@ def poeng_regning():
                     keeper_poeng = 0
 # Minutter
                     minutes_played = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Minutes played"]["stat"]["value"]
-                    print(f"{minutes_played} minutter")
+                    print(f"{minutes_played} minutes")
                     if minutes_played >= 60: 
                         keeper_poeng += 3
                     else: 
@@ -263,7 +263,7 @@ def poeng_regning():
                             print("Cleansheet")
                             keeper_poeng += 2
                         else: 
-                            print("Ikke cleensheet")
+                            print("Not cleensheet")
                             if awayteam_score == 1 or awayteam_score == 2: 
                                 keeper_poeng -= 0.25
                             elif awayteam_score == 3 or awayteam_score == 4: 
@@ -276,18 +276,93 @@ def poeng_regning():
                             print("Cleansheet")
                             keeper_poeng += 2
                         else: 
-                            print("Ikke cleansheet")
+                            print("Not cleansheet")
                             if hometeam_score == 1 or hometeam_score == 2: 
                                 keeper_poeng -= 0.25
                             elif hometeam_score == 3 or hometeam_score == 4: 
                                 keeper_poeng -= 0.5
                             elif hometeam_score >= 5: 
                                 keeper_poeng -= 0.85
-
-
 # Mål sluppet inn 
-            
-                    
+# Passnings prosent
+                    passninger_truffet = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate passes"]["stat"]["value"]
+                    passninger_totalt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate passes"]["stat"]["total"]
+
+                    passning_prosent = ((passninger_truffet/passninger_totalt)*100)
+                    passning_prosent = round(passning_prosent, 2)
+                    print(f"{passning_prosent} % passing accuracy")
+
+                    if passning_prosent <= 20: 
+                        keeper_poeng += 0.1
+                    elif passning_prosent <= 40 and passning_prosent > 20: 
+                        keeper_poeng += 0.2
+                    elif passning_prosent <= 60 and passning_prosent > 40: 
+                        keeper_poeng += 0.3
+                    elif passning_prosent <= 80 and passning_prosent > 60: 
+                        keeper_poeng += 0.4
+                    elif passning_prosent <= 100 and passning_prosent > 80: 
+                        keeper_poeng += 0.5
+# Passnings prosent             
+# Lange passnings prosent
+                    lange_passninger_truffet = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate long balls"]["stat"]["value"]
+                    lange_passninger_totalt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate long balls"]["stat"]["total"]
+
+                    lange_passnings_prosent = ((lange_passninger_truffet/lange_passninger_totalt)*100)
+                    lange_passnings_prosent = round(lange_passnings_prosent, 2)
+                    print(f"{lange_passnings_prosent} % longball prosent")
+
+                    if lange_passnings_prosent <= 20: 
+                        keeper_poeng += 0.1
+                    elif lange_passnings_prosent <= 40 and lange_passnings_prosent > 20: 
+                        keeper_poeng += 0.2
+                    elif lange_passnings_prosent <= 60 and lange_passnings_prosent > 40: 
+                        keeper_poeng += 0.3
+                    elif lange_passnings_prosent <= 80 and lange_passnings_prosent > 60: 
+                        keeper_poeng += 0.4
+                    elif lange_passnings_prosent <= 100 and lange_passnings_prosent > 80: 
+                        keeper_poeng += 0.5
+# Lange passnings prosent
+# Kast
+                    kast = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Throws"]["stat"]["value"]
+                    print(f"{kast} throws")
+
+                    if kast == 0 or kast <= 7: 
+                        keeper_poeng += 0.2
+                    elif kast >= 8: 
+                        keeper_poeng += 0.35
+# Kast
+# Diving saves
+                    diving_saves = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Diving save"]["stat"]["value"]
+                    print(f"{diving_saves} diving saves")
+                    if diving_saves == 0 or diving_saves == 1: 
+                        keeper_poeng += 0.2
+                    elif diving_saves >= 2: 
+                        keeper_poeng += 0.35
+# Diving saves
+# Saves inside box
+                    saves_inside_box = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Saves inside box"]["stat"]["value"]
+                    print(f"{saves_inside_box} saves inside the box")
+                    if saves_inside_box == 0 or saves_inside_box == 1: 
+                        keeper_poeng += 0.2
+                    elif saves_inside_box >= 2: 
+                        keeper_poeng += 0.35
+# Saves inside box
+# Act as sweeperkeeper
+                    act_as_sweeper = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Acted as sweeper"]["stat"]["value"]
+                    print(f"{act_as_sweeper} acts as sweeper keeper")
+                    if act_as_sweeper == 0: 
+                        keeper_poeng += 0 
+                    elif act_as_sweeper >= 1: 
+                        keeper_poeng += 0.25
+# Act as sweeperkeeper
+# Punches
+                    punches = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Punches"]["stat"]["value"]
+                    print(f"{punches} punches")
+                    if punches <= 3: 
+                        keeper_poeng += 0.2
+                    elif punches >= 4: 
+                        keeper_poeng += 0.3
+# Punches
                     
                     print(f"{keeper_poeng} poeng")
 # Keeper
