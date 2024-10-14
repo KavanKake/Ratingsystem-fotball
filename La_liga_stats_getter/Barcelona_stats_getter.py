@@ -248,6 +248,48 @@ def poeng_regning():
 # Keeper
                 elif position == 1: 
                     print("Keeper")
+                    keeper_poeng = 0
+# Minutter
+                    minutes_played = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Minutes played"]["stat"]["value"]
+                    print(f"{minutes_played} minutter")
+                    if minutes_played >= 60: 
+                        keeper_poeng += 3
+                    else: 
+                        keeper_poeng += 1
+# Minutter
+# Mål sluppet inn
+                    if hometeam == 0: 
+                        if awayteam_score == 0: 
+                            print("Cleansheet")
+                            keeper_poeng += 2
+                        else: 
+                            print("Ikke cleensheet")
+                            if awayteam_score == 1 or awayteam_score == 2: 
+                                keeper_poeng -= 0.25
+                            elif awayteam_score == 3 or awayteam_score == 4: 
+                                keeper_poeng -= 0.5
+                            elif hometeam_score >= 5: 
+                                keeper_poeng -= 0.85
+
+                    elif awayteam == 1: 
+                        if hometeam_score == 0: 
+                            print("Cleansheet")
+                            keeper_poeng += 2
+                        else: 
+                            print("Ikke cleansheet")
+                            if hometeam_score == 1 or hometeam_score == 2: 
+                                keeper_poeng -= 0.25
+                            elif hometeam_score == 3 or hometeam_score == 4: 
+                                keeper_poeng -= 0.5
+                            elif hometeam_score >= 5: 
+                                keeper_poeng -= 0.85
+
+
+# Mål sluppet inn 
+            
+                    
+                    
+                    print(f"{keeper_poeng} poeng")
 # Keeper
             
 
