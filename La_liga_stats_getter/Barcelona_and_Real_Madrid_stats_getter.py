@@ -105,7 +105,7 @@ hometeam_score = lineup["header"]["teams"][0]["score"]
 awayteam_score = lineup["header"]["teams"][1]["score"]
 
 with open(match_file, "r") as file:
-        stats = json.load(file)
+    stats = json.load(file)
 team_stats = stats["content"]["playerStats"]
 
 
@@ -130,6 +130,27 @@ def poeng_regning():
 
     hometeam_score = lineup["header"]["teams"][0]["score"]
     awayteam_score = lineup["header"]["teams"][1]["score"]
+
+    yellow_card = []
+    red_card = []
+
+    if hometeam == 0: 
+        for player in lineup["content"]["lineup"]["homeTeam"]["starters"]:
+            events = player["performance"].get("events", [])
+            for event in events:
+                if event["type"] == "yellowCard":
+                    yellow_card.append(player["id"])
+                elif event["type"] == "redCard":
+                    red_card.append(player["id"])
+    elif awayteam == 1: 
+        for player in lineup["content"]["lineup"]["awayTeam"]["starters"]:
+            events = player["performance"].get("events", [])
+            for event in events:
+                if event["type"] == "yellowCard":
+                    yellow_card.append(player["id"])
+                elif event["type"] == "redCard":
+                    red_card.append(player["id"])
+    
 
     all_stats = input("Would you like to see all stats? (y/n)")
     if all_stats == "y":
@@ -231,8 +252,6 @@ def poeng_regning():
                             spiller_poeng += 0.6
                         elif sjanser_skapt >= 4: 
                             spiller_poeng += 1
-
-
 # Sjanser skapt
 # Mistet ballen
                         mistet_ballen = stats["content"]["playerStats"][player_id]["stats"][1]["stats"]["Dispossessed"]["stat"]["value"]
@@ -306,6 +325,17 @@ def poeng_regning():
                                 if all_stats == True:
                                     print("Not cleansheet")
 # Cleansheet
+# Diseplin
+                        if player_id in str(yellow_card): 
+                            print("Player got yellow card")
+                            spiller_poeng -= 0.5
+                        elif player_id in str(red_card):
+                            print("player got red card")
+                            spiller_poeng -= 1
+                        else: 
+                            print("no card")
+# Diseplin
+
 # Poeng for utespillere
                         if minutes_played < 10: 
                             print("Not enough time to calculate")
@@ -444,6 +474,16 @@ def poeng_regning():
                     elif punches >= 4: 
                         keeper_poeng += 0.3
 # Punches
+# Diseplin
+                    if player_id in str(yellow_card): 
+                        print("Player got yellow card")
+                        keeper_poeng -= 0.5
+                    elif player_id in str(red_card):
+                        print("player got red card")
+                        keeper_poeng -= 1
+                    else: 
+                        print("no card")
+# Diseplin
                     keeper_poeng = round(keeper_poeng, 2)
                     print(f"{keeper_poeng} poeng")
 # Keeper
