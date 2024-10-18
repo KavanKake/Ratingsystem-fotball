@@ -8,10 +8,16 @@ with open(file_path, 'r') as file:
 
 
 
-which_team = input("")
-barcelona_club = player_data["La liga"]["Barcelona"]
-team_id = barcelona_club["id"]
-barcelona_players = barcelona_club["Players"]
+which_team = input("Which team do you want to gets stats for in La Liga? (Barcelona or Real Madrid) ")
+if which_team == "Barcelona":
+    barcelona_club = player_data["La liga"]["Barcelona"]
+    team_id = barcelona_club["id"]
+    players = barcelona_club["Players"]
+
+elif which_team == "Real Madrid":
+    real_madrid_club = player_data["La liga"]["Real Madrid"]
+    team_id = real_madrid_club["id"]
+    players = real_madrid_club["Players"]
 
 
 
@@ -19,38 +25,63 @@ barcelona_players = barcelona_club["Players"]
 unavailable_id_list = []
 
 # Load match data
-print("1. Valencia Vs FC Barcelona")
-print("2. FC Barcelona VS Athletic Club")
-print("3. Rayo Vallecano Vs FC Barcelona")
-print("4. FC Barcelona Vs Real Valledolid")
-print("5. Girona Vs FC Barcelona")
-print("6. Villareal Vs FC Barcelona")
-print("7. FC Barcelona Vs Getafe")
-print("8. Osasuna Vs FC Barcelona")
-print("9. Deportivo Alaves Vs FC Barcelona")
+if which_team == "Barcelona":
+    print("Gameweek 1: Valencia Vs FC Barcelona")
+    print("Gameweek 2: FC Barcelona VS Athletic Club")
+    print("Gameweek 3: Rayo Vallecano Vs FC Barcelona")
+    print("Gameweek 4: FC Barcelona Vs Real Valledolid")
+    print("Gameweek 5: Girona Vs FC Barcelona")
+    print("Gameweek 6: Villareal Vs FC Barcelona")
+    print("Gameweek 7: FC Barcelona Vs Getafe")
+    print("Gameweek 8: Osasuna Vs FC Barcelona")
+    print("Gameweek 9: Deportivo Alaves Vs FC Barcelona")
 
-which_match = int(input("Choice one of the matches above!"))
+elif which_team == "Real Madrid":
+    print("Gameweek 1: Mallorca Vs Real Madrid")
+    print("Gameweek 2: Real Valledolid VS Real Madrid")
+    print("Gameweek 3: Las Palmas Vs Real Madrid")
+    print("Gameweek 4: Real madrid Vs Real Betis")
+    print("Gameweek 5: Real Sociadad Vs Real Madrid")
 
-if which_match == 2: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSAthleticClub.json"
-elif which_match == 4: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSRealValledolid.json"
-elif which_match == 5: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
-elif which_match == 3: 
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/RayoVallecanoVSBarcelona.json"
-elif which_match == 1: 
-    match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/ValenciaVSBarcelona.json"
-elif which_match == 6: 
-    match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/VillarealVSFCBarcelona.json"
-elif which_match == 7:
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSGetafe.json"
-elif which_match == 8:
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/OsasunaVSBarcelona.json"
-elif which_match == 9:
-    match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/DeportivoAlavesVSBarcelona.json"
-else: 
-    print("invalid answar, please choise a number from 1-6!")
+
+
+which_match = int(input("Which gameweek do you want to see?"))
+
+if which_team == "Barcelona":
+    if which_match == 2: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSAthleticClub.json"
+    elif which_match == 4: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSRealValledolid.json"
+    elif which_match == 5: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/GironaVSBarcelona.json"
+    elif which_match == 3: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/RayoVallecanoVSBarcelona.json"
+    elif which_match == 1: 
+        match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/ValenciaVSBarcelona.json"
+    elif which_match == 6: 
+        match_file= "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/VillarealVSFCBarcelona.json"
+    elif which_match == 7:
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/BarcelonaVSGetafe.json"
+    elif which_match == 8:
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/OsasunaVSBarcelona.json"
+    elif which_match == 9:
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Barcelona_apis/DeportivoAlavesVSBarcelona.json"
+    else: 
+        print("invalid answar, please choise a number from 1-9!")
+
+elif which_team == "Real Madrid":
+    if which_match == 1: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Real_madrid_apis/MallorcaVSRealMadrid.json"
+    elif which_match == 5: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Real_madrid_apis/RealSociadadVSRealMadrid.json"
+    elif which_match == 3: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Real_madrid_apis/LasPalmasVSRealMadrid.json"
+    elif which_match == 4: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Real_madrid_apis/RealMadridVSRealBetis.json"
+    elif which_match == 2: 
+        match_file = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Real_madrid_apis/RealMadridVSRealValledolid.json"
+    else:
+        print("invalid answar, please choise a number from 1-5!")
 
 with open(match_file, "r") as file:
     lineup = json.load(file)
@@ -73,6 +104,9 @@ for player in unavailable:
 hometeam_score = lineup["header"]["teams"][0]["score"]
 awayteam_score = lineup["header"]["teams"][1]["score"]
 
+with open(match_file, "r") as file:
+        stats = json.load(file)
+team_stats = stats["content"]["playerStats"]
 
 
 
@@ -97,19 +131,22 @@ def poeng_regning():
     hometeam_score = lineup["header"]["teams"][0]["score"]
     awayteam_score = lineup["header"]["teams"][1]["score"]
 
+    all_stats = input("Would you like to see all stats? (y/n)")
+    if all_stats == "y":
+        all_stats = True
+    else: 
+        all_stats = False
+
 
 
     # Iterate over Barcelona players and print stats for available players
-    for player_id, player_info in barcelona_players.items():
+    for player_id, player_info in players.items():
         # Skip players if they are in the unavailable list
         if player_id in unavailable_id_list:
             continue  # Skip this player
         
         # Load match stats
-        with open(match_file, "r") as file:
-            stats = json.load(file)
         
-        team_stats = stats["content"]["playerStats"]
 
         # Check if player stats are available
         if player_id in team_stats:
@@ -127,7 +164,9 @@ def poeng_regning():
                     
 # minutes played
                     minutes_played = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Minutes played"]["stat"]["value"]
-                    print(f"{minutes_played} minutes")
+                    if all_stats == True:
+                        print(f"{minutes_played} minutes")
+
                     if minutes_played < 10: 
                         print("Spiller spilte mindre enn 10 minutter, og poeng ble ikke generert")
                     else:
@@ -138,7 +177,8 @@ def poeng_regning():
 # Minutes played
 # Goals
                         goals = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Goals"]["stat"]["value"]
-                        print(f"{goals} goals")
+                        if all_stats == True:
+                            print(f"{goals} goals")
                         if goals == 1: 
                             spiller_poeng += 1
                         elif goals == 2: 
@@ -150,7 +190,8 @@ def poeng_regning():
 # Goals
 # Assist
                         assists = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Assists"]["stat"]["value"]
-                        print(f"{assists} assists")
+                        if all_stats == True:
+                            print(f"{assists} assists")
                         if assists == 1: 
                             spiller_poeng += 1
                         elif assists == 2: 
@@ -165,7 +206,9 @@ def poeng_regning():
                         passninger_totalt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate passes"]["stat"]["total"]
                         passning_prosent = ((passninger_truffet/passninger_totalt)*100)
                         passning_prosent = round(passning_prosent, 2)
-                        print(f"{passning_prosent} % passing accuracy")
+                        if all_stats == True:
+                            print(f"{passning_prosent} % passing accuracy")
+                        
                         if passning_prosent <= 20: 
                             spiller_poeng += 0.2
                         elif passning_prosent <= 40 and passning_prosent > 20: 
@@ -180,7 +223,8 @@ def poeng_regning():
 # Passing
 # Sjanser skapt
                         sjanser_skapt = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Chances created"]["stat"]["value"]
-                        print(f"{sjanser_skapt} chances created")
+                        if all_stats == True:
+                            print(f"{sjanser_skapt} chances created")
                         if sjanser_skapt <= 1: 
                             spiller_poeng += 0.4
                         elif sjanser_skapt == 2 or sjanser_skapt == 3: 
@@ -192,7 +236,8 @@ def poeng_regning():
 # Sjanser skapt
 # Mistet ballen
                         mistet_ballen = stats["content"]["playerStats"][player_id]["stats"][1]["stats"]["Dispossessed"]["stat"]["value"]
-                        print(f"Dispossessed:{mistet_ballen}")
+                        if all_stats == True:
+                            print(f"Dispossessed:{mistet_ballen}")
                         if mistet_ballen >= 1:
                             spiller_poeng += 0
                         elif mistet_ballen == 2 or mistet_ballen == 3: 
@@ -204,7 +249,8 @@ def poeng_regning():
 # Mistet ballen
 # Skudd på mål
                         skudd_på_mål = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Total shots"]["stat"]["value"]
-                        print(f"{skudd_på_mål} shot at goal")
+                        if all_stats == True:
+                            print(f"{skudd_på_mål} shot at goal")
                         if skudd_på_mål == 1:
                             spiller_poeng += 0
                         elif skudd_på_mål == 2 or skudd_på_mål == 3: 
@@ -218,7 +264,8 @@ def poeng_regning():
                         dueler = stats["content"]["playerStats"][player_id]["stats"][3]["stats"]
                         if "Duels won" in dueler:
                             duels_won = stats["content"]["playerStats"][player_id]["stats"][3]["stats"]["Duels won"]["stat"]["value"]
-                            print(f"{duels_won} dueler won")
+                            if all_stats == True:    
+                                print(f"{duels_won} dueler won")
                             if duels_won <= 2: 
                                 spiller_poeng += 0.3
                             elif duels_won > 2 and duels_won <= 4: 
@@ -226,12 +273,14 @@ def poeng_regning():
                             elif duels_won >= 5: 
                                 spiller_poeng += 1
 
-                        else: 
-                            print("Dueler vunnet: Ikke tilgjenglig")
+                        else:
+                            if all_stats == True: 
+                                print("Dueler vunnet: Ikke tilgjenglig")
 # Duels won 
 # Taklinger vunnet
                         taklinger_vunnet = stats["content"]["playerStats"][player_id]["stats"][2]["stats"]["Tackles won"]["stat"]["value"]
-                        print(f"{taklinger_vunnet} tackles won")
+                        if all_stats == True:
+                            print(f"{taklinger_vunnet} tackles won")
                         if taklinger_vunnet <= 2: 
                             spiller_poeng += 0.2
                         elif taklinger_vunnet > 2 and taklinger_vunnet < 4: 
@@ -242,16 +291,20 @@ def poeng_regning():
 # Cleansheet
                         if hometeam == 0: 
                             if awayteam_score == 0: 
-                                print("Cleansheet")
+                                if all_stats == True:
+                                    print("Cleansheet")
                                 spiller_poeng += 0.5
                             else: 
-                                print("Not cleensheet")
+                                if all_stats == True:
+                                    print("Not cleensheet")
                         elif awayteam == 1: 
                             if hometeam_score == 0: 
-                                print("Cleansheet")
+                                if all_stats == True:
+                                    print("Cleansheet")
                                 spiller_poeng += 0.5
                             else: 
-                                print("Not cleansheet")
+                                if all_stats == True:
+                                    print("Not cleansheet")
 # Cleansheet
 # Poeng for utespillere
                         if minutes_played < 10: 
@@ -267,7 +320,8 @@ def poeng_regning():
                     keeper_poeng = 0
 # Minutter
                     minutes_played = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Minutes played"]["stat"]["value"]
-                    print(f"{minutes_played} minutes")
+                    if all_stats == True:
+                        print(f"{minutes_played} minutes")
                     if minutes_played >= 60: 
                         keeper_poeng += 3
                     else: 
@@ -275,11 +329,13 @@ def poeng_regning():
 # Minutter
 # Mål sluppet inn
                     if hometeam == 0: 
-                        if awayteam_score == 0: 
-                            print("Cleansheet")
+                        if awayteam_score == 0:
+                            if all_stats == True: 
+                                print("Cleansheet")
                             keeper_poeng += 2
-                        else: 
-                            print("Not cleensheet")
+                        else:
+                            if all_stats == True: 
+                                print("Not cleensheet")
                             if awayteam_score == 1 or awayteam_score == 2: 
                                 keeper_poeng -= 0.25
                             elif awayteam_score == 3 or awayteam_score == 4: 
@@ -289,10 +345,12 @@ def poeng_regning():
 
                     elif awayteam == 1: 
                         if hometeam_score == 0: 
-                            print("Cleansheet")
+                            if all_stats == True:
+                                print("Cleansheet")
                             keeper_poeng += 2
                         else: 
-                            print("Not cleansheet")
+                            if all_stats == True:    
+                                print("Not cleansheet")
                             if hometeam_score == 1 or hometeam_score == 2: 
                                 keeper_poeng -= 0.25
                             elif hometeam_score == 3 or hometeam_score == 4: 
@@ -306,7 +364,8 @@ def poeng_regning():
 
                     passning_prosent = ((passninger_truffet/passninger_totalt)*100)
                     passning_prosent = round(passning_prosent, 2)
-                    print(f"{passning_prosent} % passing accuracy")
+                    if all_stats == True:
+                        print(f"{passning_prosent} % passing accuracy")
 
                     if passning_prosent <= 20: 
                         keeper_poeng += 0.1
@@ -325,7 +384,8 @@ def poeng_regning():
 
                     lange_passnings_prosent = ((lange_passninger_truffet/lange_passninger_totalt)*100)
                     lange_passnings_prosent = round(lange_passnings_prosent, 2)
-                    print(f"{lange_passnings_prosent} % longball prosent")
+                    if all_stats == True:
+                        print(f"{lange_passnings_prosent} % longball prosent")
 
                     if lange_passnings_prosent <= 20: 
                         keeper_poeng += 0.1
@@ -340,7 +400,8 @@ def poeng_regning():
 # Lange passnings prosent
 # Kast
                     kast = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Throws"]["stat"]["value"]
-                    print(f"{kast} throws")
+                    if all_stats == True:
+                        print(f"{kast} throws")
 
                     if kast == 0 or kast <= 7: 
                         keeper_poeng += 0.2
@@ -349,7 +410,8 @@ def poeng_regning():
 # Kast
 # Diving saves
                     diving_saves = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Diving save"]["stat"]["value"]
-                    print(f"{diving_saves} diving saves")
+                    if all_stats == True:
+                        print(f"{diving_saves} diving saves")
                     if diving_saves == 0 or diving_saves == 1: 
                         keeper_poeng += 0.2
                     elif diving_saves >= 2: 
@@ -357,7 +419,8 @@ def poeng_regning():
 # Diving saves
 # Saves inside box
                     saves_inside_box = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Saves inside box"]["stat"]["value"]
-                    print(f"{saves_inside_box} saves inside the box")
+                    if all_stats == True:
+                        print(f"{saves_inside_box} saves inside the box")
                     if saves_inside_box == 0 or saves_inside_box == 1: 
                         keeper_poeng += 0.2
                     elif saves_inside_box >= 2: 
@@ -365,7 +428,8 @@ def poeng_regning():
 # Saves inside box
 # Act as sweeperkeeper
                     act_as_sweeper = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Acted as sweeper"]["stat"]["value"]
-                    print(f"{act_as_sweeper} acts as sweeper keeper")
+                    if all_stats == True:
+                        print(f"{act_as_sweeper} acts as sweeper keeper")
                     if act_as_sweeper == 0: 
                         keeper_poeng += 0 
                     elif act_as_sweeper >= 1: 
@@ -373,13 +437,14 @@ def poeng_regning():
 # Act as sweeperkeeper
 # Punches
                     punches = stats["content"]["playerStats"][player_id]["stats"][0]["stats"]["Punches"]["stat"]["value"]
-                    print(f"{punches} punches")
+                    if all_stats == True:
+                        print(f"{punches} punches")
                     if punches <= 3: 
                         keeper_poeng += 0.2
                     elif punches >= 4: 
                         keeper_poeng += 0.3
 # Punches
-                    
+                    keeper_poeng = round(keeper_poeng, 2)
                     print(f"{keeper_poeng} poeng")
 # Keeper
             
