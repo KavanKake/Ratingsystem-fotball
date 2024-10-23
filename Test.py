@@ -1,27 +1,15 @@
 import requests
-from bs4 import BeautifulSoup
 
-url = 'https://www.fotmob.com/nb/matches/barcelona-vs-young-boys/2xildd#4621538'
-response = requests.get(url)
+    # Define the API endpoint URL
+url = 'https://www.fotmob.com/api/matchDetails'
+    # Make a GET request to the API endpoint using requests.get()
+response = requests.get(url, params={
+    'matchId': 4506770})
 
-# If the page is accessible
+# Check if the request was successful (status code 200)
 if response.status_code == 200:
-    page_content = response.text
-
-
-
-soup = BeautifulSoup(page_content, 'html.parser')
-
-# Now you can search for script tags or specific elements
-scripts = soup.find_all('script')
-
-
-import re
-
-# Search for something that looks like an API URL
-api_endpoints = re.findall(r'https?://[^\s"\']+', page_content)
-
-# This would give you a list of all URLs, including potential API calls
-print(api_endpoints)
-
+    posts = response.json()
+    print(posts)  # Print the posts
+else:
+    print('Error:', response.status_code)
 
