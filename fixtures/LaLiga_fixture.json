@@ -138,7 +138,7 @@
         "reason": {
           "short": "FT",
           "shortKey": "fulltime_short",
-          "long": "Full-Time",
+          "long": "Full-Time", 
           "longKey": "finished"
         }
       }
@@ -1044,6 +1044,42 @@
       }
     },
     {
+      "id": "4506767",
+      "pageUrl": "/matches/getafe-vs-real-betis/2d42jt#4506767",
+      "opponent": {
+        "id": "8603",
+        "name": "Real Betis",
+        "score": 2
+      },
+      "home": {
+        "id": "8603",
+        "name": "Real Betis",
+        "score": 2
+      },
+      "away": {
+        "id": "8305",
+        "name": "Getafe",
+        "score": 1
+      },
+      "displayTournament": true,
+      "notStarted": false,
+      "tournament": {},
+      "status": {
+        "utcTime": "2024-09-18T17:00:00Z",
+        "finished": true,
+        "started": true,
+        "cancelled": false,
+        "awarded": false,
+        "scoreStr": "2 - 1",
+        "reason": {
+          "short": "FT",
+          "shortKey": "fulltime_short",
+          "long": "Full-Time",
+          "longKey": "finished"
+        }
+      }
+    },
+    {
       "id": "4506777",
       "pageUrl": "/matches/barcelona-vs-real-valladolid/2yilao#4506777",
       "opponent": {
@@ -1791,42 +1827,6 @@
         "cancelled": false,
         "awarded": false,
         "scoreStr": "1 - 0",
-        "reason": {
-          "short": "FT",
-          "shortKey": "fulltime_short",
-          "long": "Full-Time",
-          "longKey": "finished"
-        }
-      }
-    },
-    {
-      "id": "4506767",
-      "pageUrl": "/matches/getafe-vs-real-betis/2d42jt#4506767",
-      "opponent": {
-        "id": "8603",
-        "name": "Real Betis",
-        "score": 2
-      },
-      "home": {
-        "id": "8603",
-        "name": "Real Betis",
-        "score": 2
-      },
-      "away": {
-        "id": "8305",
-        "name": "Getafe",
-        "score": 1
-      },
-      "displayTournament": true,
-      "notStarted": false,
-      "tournament": {},
-      "status": {
-        "utcTime": "2024-09-18T17:00:00Z",
-        "finished": true,
-        "started": true,
-        "cancelled": false,
-        "awarded": false,
-        "scoreStr": "2 - 1",
         "reason": {
           "short": "FT",
           "shortKey": "fulltime_short",

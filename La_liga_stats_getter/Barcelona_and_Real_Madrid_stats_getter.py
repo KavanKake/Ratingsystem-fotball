@@ -37,6 +37,7 @@ if which_team == "barcelona":
     print("Gameweek 7: FC Barcelona Vs Getafe")
     print("Gameweek 8: Osasuna Vs FC Barcelona")
     print("Gameweek 9: Deportivo Alaves Vs FC Barcelona")
+    print("gameweek 10: FC Barcelona Vs Sevilla")
 
 elif which_team == "real madrid":
     print("Gameweek 1: Mallorca Vs Real Madrid")
@@ -44,39 +45,43 @@ elif which_team == "real madrid":
     print("Gameweek 3: Las Palmas Vs Real Madrid")
     print("Gameweek 4: Real madrid Vs Real Betis")
     print("Gameweek 5: Real Sociadad Vs Real Madrid")
+    print("Gameweek 6: Real Madrid Vs Espanyol")
+    print("Gameweek 7: Real Madrid Vs deportivo Alaves")
+    print("Gameweek 8: Atletico Madrid Vs Real Madrid")
+    print("Gameweek 9: Real Madrid Vs villareal")
+    print("gameweek 10: Celta Vigo Vs Real Madrid")
 
-which_match = int(input("Which gameweek do you want to see? "))
+gameweek = int(input("Which gameweek do you want to see? "))
 
-if which_team == "barcelona":
-    Barcelona = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Matchdays_LaLiga/Barcelona_kamper.json"
-    with open(Barcelona, 'r') as file:
-        matchdays = json.load(file)
 
-elif which_team == "real madrid":
-    Real_Madrid = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/Matchdays_LaLiga/Real_Madrid_kamper.json"
-    with open(Real_Madrid, 'r') as file:
-        matchdays = json.load(file)
+last_match_check  = gameweek * 9 + (gameweek - 1)
+first_match_check = last_match_check -9
+i = first_match_check 
 
-if which_match == 1:
-    match_id = matchdays["Matchdays"]["1"]
-elif which_match == 2:
-    match_id = matchdays["Matchdays"]["2"]
-elif which_match == 3:
-    match_id = matchdays["Matchdays"]["3"]
-elif which_match == 4:
-    match_id = matchdays["Matchdays"]["4"]
-elif which_match == 5:
-    match_id = matchdays["Matchdays"]["5"]
-elif which_match == 6:
-    match_id = matchdays["Matchdays"]["6"]
-elif which_match == 7:
-    match_id = matchdays["Matchdays"]["7"]
-elif which_match == 8:
-    match_id = matchdays["Matchdays"]["8"]
-elif which_match == 9:
-    match_id = matchdays["Matchdays"]["9"]
-elif which_match == 10:
-    match_id = matchdays["Matchdays"]["10"]
+club_name = ""
+
+# Check if there is a match in that gameweek
+while i <= last_match_check:
+
+    hometeam = fixture_data[i]["home"]["name"]
+    awayteam = fixture_data[i]["away"]["name"]
+    hometeam = hometeam.strip().lower()
+    awayteam = awayteam.strip().lower()
+
+
+    if hometeam == which_team:
+        club_name = fixture_data[i]["home"]["name"].strip().lower()
+        match_id = fixture_data[i]["id"]
+        break
+    elif awayteam == which_team:
+        club_name = fixture_data[i]["away"]["name"].strip().lower()
+        match_id = fixture_data[i]["id"]
+        break
+    else:
+        i += 1
+
+print(f"Home team: {hometeam}, Away team: {awayteam}")
+
 
 if which_team == "barcelona":
     url = 'https://www.fotmob.com/api/matchDetails'
@@ -95,6 +100,9 @@ elif which_team == "real madrid":
         posts = response.json()
     else:
         print('Error:', response.status_code)
+
+if posts["general"]["started"] == "true": 
+    print("Kampen har startet")
 
 if which_team == "barcelona":
     match_file = posts
@@ -124,6 +132,11 @@ awayteam_score = lineup["header"]["teams"][1]["score"]
 
 
 team_stats = posts["content"]["playerStats"]
+
+started = posts["general"]["started"]
+finished = posts["general"]["finished"]
+
+
 
 
 
@@ -428,9 +441,11 @@ def poeng_regning():
 # Lange passnings prosent
                     lange_passninger_truffet = posts["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate long balls"]["stat"]["value"]
                     lange_passninger_totalt = posts["content"]["playerStats"][player_id]["stats"][0]["stats"]["Accurate long balls"]["stat"]["total"]
-
-                    lange_passnings_prosent = ((lange_passninger_truffet/lange_passninger_totalt)*100)
-                    lange_passnings_prosent = round(lange_passnings_prosent, 2)
+                    if lange_passninger_totalt > 0:
+                        lange_passnings_prosent = ((lange_passninger_truffet/lange_passninger_totalt)*100)
+                        lange_passnings_prosent = round(lange_passnings_prosent, 2)
+                    else:
+                        lange_passnings_prosent = 0
                     if all_stats == True:
                         print(f"{lange_passnings_prosent} % longball prosent")
 
@@ -512,6 +527,8 @@ def poeng_regning():
             print(f"No stats available for Player ID: {player_id}, Name: {player_info['name']}")
             print("")
 
-poeng_regning()
-
+if started == True and finished == True:
+    poeng_regning()
+else:
+    print("Match is not played yet")
 
