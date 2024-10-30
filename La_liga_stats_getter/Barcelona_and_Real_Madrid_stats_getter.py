@@ -2,54 +2,15 @@ import json
 import requests
 
 
-fixtures = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/fixtures/LaLiga_fixture.json"
-with open(fixtures, 'r') as file:
-    fixture_data = json.load(file)
-
-# Load player data for Barcelona from the API
-file_path = "/Users/kavinlokeswaran/Documents/GitHub/Ratingsystem-fotball/League_apis/Laliga.json"
-with open(file_path, 'r') as file:
-    player_data = json.load(file)  # Load the JSON content into a Python dictionary
-
+    
+fixture_url = 'https://www.fotmob.com/api/fixtures?id=87&season=2024%2F2025'
+response = requests.get(fixture_url)
+if response.status_code == 200:
+    fixture_data = response.json()
+else:
+    print('Error:', response.status_code)
 
 which_team = input("Which team do you want to gets stats for in La Liga? (Barcelona or Real Madrid)").strip().lower()
-if which_team == "barcelona":
-    barcelona_club = player_data["La liga"]["Barcelona"]
-    team_id = barcelona_club["id"]
-    players = barcelona_club["Players"]
-
-elif which_team == "real madrid":
-    real_madrid_club = player_data["La liga"]["Real Madrid"]
-    team_id = real_madrid_club["id"]
-    players = real_madrid_club["Players"]
-
-# Hometeam or awayteam and unavailable players
-unavailable_id_list = []
-
-# Load match data
-if which_team == "barcelona":
-    print("Gameweek 1: Valencia Vs FC Barcelona")
-    print("Gameweek 2: FC Barcelona VS Athletic Club")
-    print("Gameweek 3: Rayo Vallecano Vs FC Barcelona")
-    print("Gameweek 4: FC Barcelona Vs Real Valledolid")
-    print("Gameweek 5: Girona Vs FC Barcelona")
-    print("Gameweek 6: Villareal Vs FC Barcelona")
-    print("Gameweek 7: FC Barcelona Vs Getafe")
-    print("Gameweek 8: Osasuna Vs FC Barcelona")
-    print("Gameweek 9: Deportivo Alaves Vs FC Barcelona")
-    print("gameweek 10: FC Barcelona Vs Sevilla")
-
-elif which_team == "real madrid":
-    print("Gameweek 1: Mallorca Vs Real Madrid")
-    print("Gameweek 2: Real Valledolid VS Real Madrid")
-    print("Gameweek 3: Las Palmas Vs Real Madrid")
-    print("Gameweek 4: Real madrid Vs Real Betis")
-    print("Gameweek 5: Real Sociadad Vs Real Madrid")
-    print("Gameweek 6: Real Madrid Vs Espanyol")
-    print("Gameweek 7: Real Madrid Vs deportivo Alaves")
-    print("Gameweek 8: Atletico Madrid Vs Real Madrid")
-    print("Gameweek 9: Real Madrid Vs villareal")
-    print("gameweek 10: Celta Vigo Vs Real Madrid")
 
 gameweek = int(input("Which gameweek do you want to see? "))
 
@@ -72,69 +33,71 @@ while i <= last_match_check:
     if hometeam == which_team:
         club_name = fixture_data[i]["home"]["name"].strip().lower()
         match_id = fixture_data[i]["id"]
+        team_id = fixture_data[i]["home"]["id"]
+        hometeam_name = fixture_data[i]["home"]["name"]
+        awayteam_name = fixture_data[i]["away"]["name"]
+        hometeam = 0
+        awayteam = 10
         break
     elif awayteam == which_team:
         club_name = fixture_data[i]["away"]["name"].strip().lower()
         match_id = fixture_data[i]["id"]
+        team_id = fixture_data[i]["away"]["id"]
+        awayteam_name = fixture_data[i]["away"]["name"]
+        hometeam_name = fixture_data[i]["home"]["name"]
+        awayteam = 1
+        hometeam = 10
         break
     else:
         i += 1
 
-print(f"Home team: {hometeam}, Away team: {awayteam}")
+    
 
 
-if which_team == "barcelona":
-    url = 'https://www.fotmob.com/api/matchDetails'
-    response = requests.get(url, params={
-        'matchId': match_id})
-    if response.status_code == 200:
-        posts = response.json()
-    else:
-        print('Error:', response.status_code)
 
-elif which_team == "real madrid":
-    url = 'https://www.fotmob.com/api/matchDetails'
-    response = requests.get(url, params={
-        'matchId': match_id})
-    if response.status_code == 200:
-        posts = response.json()
-    else:
-        print('Error:', response.status_code)
 
-if posts["general"]["started"] == "true": 
-    print("Kampen har startet")
-
-if which_team == "barcelona":
-    match_file = posts
-
-elif which_team == "real madrid":
-    match_file = posts
-
-lineup = posts
-
-# Check if Barcelona is the home team
-hometeam_id = lineup["content"]["lineup"]["homeTeam"]["id"]
-
-print("")
-if hometeam_id == team_id: 
-    hometeam = True 
-    unavailable = lineup["content"]["lineup"]["homeTeam"]["unavailable"]
+url = 'https://www.fotmob.com/api/matchDetails'
+response = requests.get(url, params={
+    'matchId': match_id})
+if response.status_code == 200:
+    posts = response.json()
 else:
-    awayteam = True
-    unavailable = lineup["content"]["lineup"]["awayTeam"]["unavailable"]
+    print('Error:', response.status_code)
 
-# Add unavailable player IDs to list
-for player in unavailable:
-    unavailable_id_list.append(player["id"])
 
-hometeam_score = lineup["header"]["teams"][0]["score"]
-awayteam_score = lineup["header"]["teams"][1]["score"]
 
+if hometeam == 0:
+    starters = posts["content"]["lineup"]["homeTeam"]["starters"]
+    subs = posts["content"]["lineup"]["homeTeam"]["subs"]
+    unavailable = posts["content"]["lineup"]["homeTeam"]["unavailable"]
+    players = starters + subs + unavailable
+elif awayteam == 1:
+    starters = posts["content"]["lineup"]["awayTeam"]["starters"]
+    subs = posts["content"]["lineup"]["awayTeam"]["subs"]
+    unavailable = posts["content"]["lineup"]["awayTeam"]["unavailable"]
+    players = starters + subs + unavailable
+
+
+match_file = posts
+
+
+
+hometeam_score = posts["header"]["teams"][0]["score"]
+awayteam_score = posts["header"]["teams"][1]["score"]
+
+print(f"{hometeam_name}: {hometeam_score},{awayteam_name}: {awayteam_score}")
 
 team_stats = posts["content"]["playerStats"]
 
+
 started = posts["general"]["started"]
 finished = posts["general"]["finished"]
+
+# Hometeam or awayteam and unavailable players
+unavailable_id_list = []
+for player in unavailable:
+    unavailable_id_list.append(player["id"])
+
 
 
 
@@ -143,29 +106,15 @@ finished = posts["general"]["finished"]
 
 def poeng_regning(): 
     # Check if Barcelona is the home team
-    hometeam_id = lineup["content"]["lineup"]["homeTeam"]["id"]
+    hometeam_id = posts["content"]["lineup"]["homeTeam"]["id"]
 
-    if hometeam_id == team_id: 
-        hometeam = 0
-        awayteam = 10
-        unavailable = lineup["content"]["lineup"]["homeTeam"]["unavailable"]
-    else:
-        awayteam = 1
-        hometeam = 10
-        unavailable = lineup["content"]["lineup"]["awayTeam"]["unavailable"]
 
-    # Add unavailable player IDs to list
-    for player in unavailable:
-        unavailable_id_list.append(player["id"])
-
-    hometeam_score = lineup["header"]["teams"][0]["score"]
-    awayteam_score = lineup["header"]["teams"][1]["score"]
 
     yellow_card = []
     red_card = []
 
     if hometeam == 0: 
-        for player in lineup["content"]["lineup"]["homeTeam"]["starters"]:
+        for player in posts["content"]["lineup"]["homeTeam"]["starters"]:
             events = player["performance"].get("events", [])
             for event in events:
                 if event["type"] == "yellowCard":
@@ -173,7 +122,7 @@ def poeng_regning():
                 elif event["type"] == "redCard":
                     red_card.append(player["id"])
     elif awayteam == 1: 
-        for player in lineup["content"]["lineup"]["awayTeam"]["starters"]:
+        for player in posts["content"]["lineup"]["awayTeam"]["starters"]:
             events = player["performance"].get("events", [])
             for event in events:
                 if event["type"] == "yellowCard":
@@ -191,26 +140,26 @@ def poeng_regning():
 
 
     # Iterate over Barcelona players and print stats for available players
-    for player_id, player_info in players.items():
+    for player in starters:
+        player_id = str(player["id"])
+
         # Skip players if they are in the unavailable list
         if player_id in unavailable_id_list:
+            print(f"Player ID: {player_id}, Name: {player['name']}, was unavailable")
             continue  # Skip this player
         
-        # Load match stats
-        
-
         # Check if player stats are available
         if player_id in team_stats:
             player_allstats = team_stats[player_id]
             player_mystats = player_allstats["stats"]
 
             if player_mystats == []:
-                print(f"Player ID: {player_id}, Name: {player_info['name']}, was benched")
+                print(f"Player ID: {player_id}, Name: {player['name']}, was benched")
                 print("")
             else: 
-                print(f"Player ID: {player_id}, Name: {player_info['name']}")
-                position = player_info["position"]
-                if position == 10: 
+                print(f"Player ID: {player_id}, Name: {player['name']}")
+                position = player["usualPlayingPositionId"]
+                if position != 0: 
                     spiller_poeng = 0
                     
 # minutes played
@@ -362,8 +311,6 @@ def poeng_regning():
                         elif player_id in str(red_card):
                             print("player got red card")
                             spiller_poeng -= 1
-                        else: 
-                            print("no card")
 # Diseplin
 
 # Poeng for utespillere
@@ -375,7 +322,7 @@ def poeng_regning():
 # Poeng for utespillere
 
 # Keeper
-                elif position == 1: 
+                elif position == 0 : 
                     print("Keeper")
                     keeper_poeng = 0
 # Minutter
@@ -513,8 +460,6 @@ def poeng_regning():
                     elif player_id in str(red_card):
                         print("player got red card")
                         keeper_poeng -= 1
-                    else: 
-                        print("no card")
 # Diseplin
                     keeper_poeng = round(keeper_poeng, 2)
                     print(f"{keeper_poeng} poeng")
@@ -524,7 +469,7 @@ def poeng_regning():
                 
                 print("")
         else:
-            print(f"No stats available for Player ID: {player_id}, Name: {player_info['name']}")
+            print(f"No stats available for Player ID: {player_id}, Name: {player['name']}")
             print("")
 
 if started == True and finished == True:
